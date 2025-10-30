@@ -1,0 +1,39 @@
+CREATE TABLE employee_profile_table (
+ employee_id INT AUTO_INCREMENT PRIMARY KEY NOT NULL,
+ employee_no CHAR(4) NOT NULL,
+ employee_name VARCHAR(50) NOT NULL,
+ ic_no CHAR(4) NOT NULL
+)
+
+CREATE TABLE job_profile_table(
+ job_id INT AUTO_INCREMENT PRIMARY KEY NOT NULL,
+ job_name VARCHAR(50) NOT NULL
+)
+
+CREATE TABLE employee_job_table(
+ employee_id INT NOT NULL,
+ job_id INT NOT NULL,
+ effective_date DATE DEFAULT (CURRENT_DATE),
+ PRIMARY KEY (employee_id, job_id),
+ FOREIGN KEY (employee_id) REFERENCES employee_profile_table(employee_id),
+ FOREIGN KEY (job_id) REFERENCES job_profile_table(job_id)
+)
+
+INSERT INTO employee_profile_table (employee_no, employee_name, ic_no)
+VALUES ('1000', 'Ali', '1234'),
+       ('1001', 'Ahmad', '2345'),
+       ('1002', 'Koay', '3456'),
+       ('1003', 'Lau', '4567');
+
+INSERT INTO job_profile_table (job_name)
+VALUES ('Finance'),
+       ('Developer'),
+       ('Admin'),
+       ('Senior Developer');
+
+INSERT INTO employee_job_table (employee_id, job_id)
+VALUES (1,2),
+       (1,4),
+       (2,2),
+       (3,3),
+       (4,1);
