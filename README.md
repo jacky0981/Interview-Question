@@ -33,12 +33,4 @@
 
 ## Question B
 
-### With referring to the tables above, please provide a single SQL statement to :
-
-a. update the employee with employee_no 1002 job to 4, with effective 2020-01-01.
-
-b. list out the employee name, employee no, effective date, job title.
-
-c. list out the employee name, employee no, **latest job title**
-
-d. delete all employee with employee_no 1000 job title, with effective date of 2020-01-01
+<img width="681" height="626" alt="image" src="https://github.com/user-attachments/assets/55c15912-a9f4-4281-9696-aab735aa55a8" />
