@@ -25,57 +25,13 @@
 
 ## Question A
 
-<img src="https://github.com/MYwavePSSD/InterviewQuestion-PHP-Basic/blob/main/screen.png" />
+<img width="607" height="375" alt="image" src="https://github.com/user-attachments/assets/1288067b-ecd3-4c98-acb9-c6e16a684692" />
+<img width="596" height="404" alt="image" src="https://github.com/user-attachments/assets/d753fe58-b0d0-49b7-8f92-144f0b5a9d24" />
+<img width="593" height="407" alt="image" src="https://github.com/user-attachments/assets/e4e4f4d0-983d-47c8-9cd3-71c5db224639" />
+<img width="593" height="409" alt="image" src="https://github.com/user-attachments/assets/a8754fe9-f2ba-47bf-bf37-6b10c17eb27a" />
 
-
-a. Draw an interface in ***html.php***
-  1. “Submit” button with green background color and white font color
-  
-b. When user key in username and click “Submit”
-  1. in ***verify_ajax.js*** check is the input is empty
-  2. If input is not empty, use ajax to pass value to info.php
-  3. In ***info.php*** check is the value is abc.
-  4. Return and show message Verified if the username is abc (refer to Picture 2), prompt Error if username is not abc (refer to Picture 2)
-
-### Bonus Stage
-
-1. Apply clean code principle
-2. Apply comment
-3. Beutify the interface
 
 ## Question B
-
-- create **query.txt** to provide answer for 4 SQL below.
-
-**Table 1: employee_profile_table**
-
-
-|employee_id |employee_no |employee_name|ic_no|
-|---|---|---|---|
-|1 |1000 |Ali |1234|
-|2 |1001 |Ahmad |2345|
-|3 |1002 |Koay |3456|
-|4 |1003 |Lau |4567|
-
-
-**Table 2: job_profile_table**
-
-|job_id |job_name|
-|---|---|
-|1 |Finance|
-|2 |Developer|
-|3 |Admin|
-|4|Senior Developer|
-
-**Table 3: employee_job_table**
-
-|employee_id |job_id |effective_date|
-|---|---|---|
-|1| 2| 2019-01-01|
-|1| 4| 2020-01-01|
-|2| 2| 2018-01-01|
-|3| 3| 2017-05-14|
-|4| 1| 2019-06-09|
 
 ### With referring to the tables above, please provide a single SQL statement to :
 
