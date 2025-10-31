@@ -3,12 +3,12 @@ CREATE TABLE employee_profile_table (
  employee_no CHAR(4) NOT NULL,
  employee_name VARCHAR(50) NOT NULL,
  ic_no CHAR(4) NOT NULL
-)
+);
 
 CREATE TABLE job_profile_table(
  job_id INT AUTO_INCREMENT PRIMARY KEY NOT NULL,
  job_name VARCHAR(50) NOT NULL
-)
+);
 
 CREATE TABLE employee_job_table(
  employee_id INT NOT NULL,
@@ -17,7 +17,7 @@ CREATE TABLE employee_job_table(
  PRIMARY KEY (employee_id, job_id),
  FOREIGN KEY (employee_id) REFERENCES employee_profile_table(employee_id),
  FOREIGN KEY (job_id) REFERENCES job_profile_table(job_id)
-)
+);
 
 INSERT INTO employee_profile_table (employee_no, employee_name, ic_no)
 VALUES ('1000', 'Ali', '1234'),
@@ -31,9 +31,47 @@ VALUES ('Finance'),
        ('Admin'),
        ('Senior Developer');
 
-INSERT INTO employee_job_table (employee_id, job_id)
-VALUES (1,2),
-       (1,4),
-       (2,2),
-       (3,3),
-       (4,1);
+INSERT INTO employee_job_table (employee_id, job_id, effective_date)
+VALUES 
+  (1, 2, '2019-01-01'),
+  (1, 4, '2020-01-01'),
+  (2, 2, '2018-01-01'),
+  (3, 3, '2017-05-14'),
+  (4, 1, '2019-06-09');
+
+UPDATE employee_job_table
+SET job_id = 4, effective_date = '2020-01-01'
+WHERE employee_id = 3;
+
+SELECT 
+  e.employee_name,
+  e.employee_no,
+  ej.effective_date,
+  j.job_name AS job_title
+FROM employee_job_table ej
+JOIN employee_profile_table e 
+  ON ej.employee_id = e.employee_id
+JOIN job_profile_table j 
+  ON ej.job_id = j.job_id;
+
+SELECT 
+  e.employee_name,
+  e.employee_no,
+  j.job_name AS latest_job_title
+FROM employee_job_table ej
+JOIN employee_profile_table e 
+  ON ej.employee_id = e.employee_id
+JOIN job_profile_table j 
+  ON ej.job_id = j.job_id
+WHERE ej.effective_date = (
+    SELECT MAX(ej2.effective_date)
+    FROM employee_job_table ej2
+    WHERE ej2.employee_id = e.employee_id
+);
+
+DELETE ej
+FROM employee_job_table ej
+JOIN employee_profile_table e
+  ON ej.employee_id = e.employee_id
+WHERE e.employee_no = '1000'
+  AND ej.effective_date = '2020-01-01';
